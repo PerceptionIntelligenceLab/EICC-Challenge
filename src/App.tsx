@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Statistics from './components/Statistics'
+import Hosts from './components/Hosts'
 import './App.css'
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
     switch (currentSection) {
       case 'participants':
         return <Statistics />
+      case 'hosts':
+        return <Hosts />
       default:
         return (
           <main className="main-content">

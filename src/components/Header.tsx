@@ -5,7 +5,7 @@ const Header: React.FC = () => {
 
   const navItems = [
     { name: 'Home', href: '#home' },
-    { name: 'Leaderboards', href: '#leaderboards' },
+    { name: 'Leaderboards', href: '#leaderboards', locked: true },
     { name: 'Statistics', href: '#participants' },
     { name: 'Important Dates', href: '#dates' },
     { name: 'Hosts', href: '#hosts' },
@@ -20,14 +20,24 @@ const Header: React.FC = () => {
       <div className="header-container">
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="nav-link"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {item.name}
-            </a>
+            item.locked ? (
+              <span
+                key={item.name}
+                className="nav-link locked"
+                title="Coming Soon"
+              >
+                🔒 {item.name}
+              </span>
+            ) : (
+              <a
+                key={item.name}
+                href={item.href}
+                className="nav-link"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.name}
+              </a>
+            )
           ))}
         </nav>
 
