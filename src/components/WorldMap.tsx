@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps'
 import { countryColors } from '../constants/countryColors'
 
@@ -18,9 +18,24 @@ const WorldMap: React.FC<WorldMapProps> = ({ data }) => {
     x: number
     y: number
   } | null>(null)
+  const [mapScale, setMapScale] = useState(200)
+  const [windowSize, setWindowSize] = useState({ width: typeof window !== 'undefined' ? window.innerWidth : 1920, height: typeof window !== 'undefined' ? window.innerHeight : 1080 })
 
   // Create a map of country codes to counts for quick lookup
   const dataMap = new Map(data.map(item => [item.countryCode, item.count]))
+
+  useEffect(() => {
+    const updateScale = () => {
+      const width = window.innerWidth
+      setMapScale(width < 768 ? 150 : 200)
+      setWindowSize({ width, height: window.innerHeight })
+    }
+    
+    updateScale()
+    window.addEventListener('resize', updateScale)
+    
+    return () => window.removeEventListener('resize', updateScale)
+  }, [])
 
   const getCountryColor = (countryCode: string) => {
     // Return specific color for the country, or light gray if not defined
@@ -80,11 +95,32 @@ const WorldMap: React.FC<WorldMapProps> = ({ data }) => {
     }
   }
 
+  const handleTouchStart = (geo: any, event: React.TouchEvent) => {
+    const touch = event.touches[0]
+    const countryCode = geo.properties.ISO_A2 || geo.properties.ISO_A3 || geo.properties.ADM0_A3 || 'XX'
+    const count = dataMap.get(countryCode) || 0
+    
+    let countryName = geo.properties.NAME || 
+                     geo.properties.NAME_EN || 
+                     geo.properties.ADMIN || 
+                     geo.properties.NAME_LONG ||
+                     geo.properties.SOVEREIGNT ||
+                     geo.properties.NAME_SORT ||
+                     `Country ${countryCode}`
+
+    setHoveredCountry({
+      name: countryName,
+      count,
+      x: touch.clientX,
+      y: touch.clientY
+    })
+  }
+
   return (
     <div className="world-map-container" onMouseMove={handleMouseMove}>
       <ComposableMap
         projectionConfig={{
-          scale: 200,
+          scale: mapScale,
           center: [0, 0]
         }}
         style={{
@@ -105,6 +141,8 @@ const WorldMap: React.FC<WorldMapProps> = ({ data }) => {
                   strokeWidth={1}
                   onMouseEnter={(event) => handleMouseEnter(geo, event)}
                   onMouseLeave={handleMouseLeave}
+                  onTouchStart={(event) => handleTouchStart(geo, event)}
+                  onTouchEnd={handleMouseLeave}
                   style={{
                     default: {
                       fill: getCountryColor(countryCode),
@@ -138,8 +176,8 @@ const WorldMap: React.FC<WorldMapProps> = ({ data }) => {
           className="map-tooltip"
           style={{
             position: 'fixed',
-            left: hoveredCountry.x + 10,
-            top: hoveredCountry.y - 10,
+            left: Math.min(hoveredCountry.x + 10, windowSize.width - 180),
+            top: Math.max(hoveredCountry.y - 10, 10),
             zIndex: 1000,
             pointerEvents: 'none'
           }}

@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
         <div className="footer-content">
           <div className="footer-section">
             <h3>Challenge</h3>
-            <p>Medico Automatic Polyp Segmentation Challenge</p>
+            <p>Machine Mind Marathon</p>
             <p>MediaEval 2020</p>
           </div>
           
@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; 2020 Medico Challenge. All rights reserved.</p>
+          <p>&copy; 2020 Machine Mind Marathon. All rights reserved.</p>
         </div>
       </div>
     </footer>

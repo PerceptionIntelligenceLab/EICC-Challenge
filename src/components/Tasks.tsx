@@ -37,7 +37,7 @@ const Tasks: React.FC = () => {
         </div>
 
         <div className="task-tabs">
-          {tasks.map((task, index) => (
+          {tasks.map((_task, index) => (
             <button
               key={index}
               className={`task-tab ${activeTask === index ? 'active' : ''}`}
