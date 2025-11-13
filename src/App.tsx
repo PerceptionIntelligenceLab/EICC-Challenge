@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Statistics from './components/Statistics'
 import Hosts from './components/Hosts'
+import Tasks from './components/Tasks'
+import Evaluation from './components/Evaluation'
+import Footer from './components/Footer'
 import './App.css'
 
 function App() {
@@ -30,6 +33,42 @@ function App() {
         return <Statistics />
       case 'hosts':
         return <Hosts />
+      case 'dates':
+        return <Evaluation />
+      case 'tasks':
+        return <Tasks />
+      case 'conduct':
+        return (
+          <main className="main-content">
+            <h1>Code of Conduct</h1>
+            <p>We are committed to providing a welcoming and inspiring community for all. We expect all participants to:</p>
+            <ul>
+              <li>Be respectful and inclusive</li>
+              <li>Collaborate in a constructive manner</li>
+              <li>Maintain professional behavior</li>
+              <li>Respect intellectual property and data usage guidelines</li>
+            </ul>
+            <p>Any violations of this code of conduct may result in disqualification from the challenge.</p>
+          </main>
+        )
+      case 'contact':
+        return (
+          <main className="main-content">
+            <h1>Contact</h1>
+            <h2>Task Organizers</h2>
+            <p><strong>Dr. Debesh Jha</strong></p>
+            <p>SimulaMet</p>
+            <p>Email: debesh@simula.no</p>
+            <p><strong>Harshith Reddy Nalla</strong></p>
+            <p>Undergraduate Research Assistant</p>
+            <p>University of South Dakota</p>
+            <p><strong>Sai Sankar Swarna</strong></p>
+            <p>Graduate Assistant</p>
+            <p>University of South Dakota</p>
+            <h2>Discord Channel</h2>
+            <p>To facilitate communication within the participants, we have set up a Discord channel. You can use this channel for discussion of the challenge or ask questions. Please email debesh@simula.no for the invitation to the Discord.</p>
+          </main>
+        )
       default:
         return (
           <main className="main-content">
@@ -104,6 +143,7 @@ function App() {
     <div className="app">
       <Header />
       {renderContent()}
+      <Footer />
     </div>
   )
 }

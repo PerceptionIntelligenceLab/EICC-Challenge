@@ -10,8 +10,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #0a0a0a;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
   overflow-x: hidden;
 }
 
@@ -25,27 +25,27 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #f8f9fa;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #00d4ff, #0099cc);
+  background: linear-gradient(45deg, #28a745, #20c997);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #00b8e6, #007aa3);
+  background: linear-gradient(45deg, #20c997, #28a745);
 }
 
 /* Selection */
 ::selection {
-  background: rgba(0, 212, 255, 0.3);
+  background-color: #28a745;
   color: #ffffff;
 }
 
 /* Focus styles */
 *:focus {
-  outline: 2px solid #00d4ff;
+  outline: 2px solid #28a745;
   outline-offset: 2px;
 }
 
