@@ -1,12 +1,14 @@
 import React from 'react'
 
+const BASE_URL = import.meta.env.BASE_URL
+
 const Hosts: React.FC = () => {
   const hosts = [
     {
       name: "Debesh Jha",
       title: "Assistant Professor (Tenure Track) @USD",
       description: "Assistant Professor (Tenure Track) @USD | Former Sr. Res. Associate @Northwestern | EB1A (Extraordinary Ability) recipient | Top 2% Scientist | AI & Medical Imaging Expert | Senior IEEE Member | Open Science Advocate",
-      image: "/debesh.png",
+      image: `${BASE_URL}debesh.png`,
       links: [
         { name: "Website", url: "https://debeshjha.com/" },
         { name: "GitHub", url: "https://github.com/DebeshJha" },
@@ -17,7 +19,7 @@ const Hosts: React.FC = () => {
       name: "Harshith Reddy Nalla",
       title: "Undergraduate Research Assistant",
       description: "Undergraduate Research Assistant at the University of South Dakota, mentored by Professor Debesh Jha. Works on AI-powered medical imaging and intelligent web applications integrating deep learning and scalable backend systems.",
-      image: "/harshith.png",
+      image: `${BASE_URL}harshith.png`,
       links: [
         { name: "GitHub", url: "https://github.com/HarshithReddy01" },
         { name: "LinkedIn", url: "https://www.linkedin.com/in/harshith-reddy-nalla-6005012ab/" },
@@ -28,7 +30,7 @@ const Hosts: React.FC = () => {
       name: "Sai Sankar Swarna",
       title: "Graduate Assistant",
       description: "Graduate Assistant at the University of South Dakota specializing in Computer Science. Experienced in Spring Boot, Java, Python, and DevOps tools, contributing to scalable backend systems and academic instruction.",
-      image: "/sai sankar.jpeg",
+      image: `${BASE_URL}sai sankar.jpeg`,
       links: [
         { name: "GitHub", url: "https://github.com/Swarna7414" },
         { name: "LinkedIn", url: "https://www.linkedin.com/in/swanra-sai-sankar-000797191/" }

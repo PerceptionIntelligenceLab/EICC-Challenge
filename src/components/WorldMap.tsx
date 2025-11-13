@@ -11,6 +11,8 @@ interface WorldMapProps {
   data: CountryData[]
 }
 
+const BASE_URL = import.meta.env.BASE_URL
+
 const WorldMap: React.FC<WorldMapProps> = ({ data }) => {
   const [hoveredCountry, setHoveredCountry] = useState<{
     name: string
@@ -128,7 +130,7 @@ const WorldMap: React.FC<WorldMapProps> = ({ data }) => {
           height: '100vh'
         }}
       >
-        <Geographies geography="/world-110m.json">
+        <Geographies geography={`${BASE_URL}world-110m.json`}>
           {({ geographies }: { geographies: any[] }) =>
             geographies.map((geo) => {
               const countryCode = geo.properties.ISO_A2
