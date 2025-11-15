@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
           <div className="footer-section">
             <h3>Resources</h3>
             <p>Dataset Release: November 15, 2025</p>
-            <p><a href="https://drive.google.com/drive/folders/11C6vYHc6Q2AFLuBvE5ySn3KAs5F0Dbtt?usp=drive_link" target="_blank" rel="noopener noreferrer">Dataset Download</a></p>
+            <p><a href="https://www.kaggle.com/datasets/debeshjha1/surgical-instrument-classification" target="_blank" rel="noopener noreferrer">Dataset Download</a></p>
           </div>
           
           <div className="footer-section">

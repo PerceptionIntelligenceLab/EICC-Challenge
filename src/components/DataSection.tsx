@@ -37,12 +37,12 @@ const DataSection: React.FC = () => {
           <h4 style={{ marginTop: '1rem', marginBottom: '0.5rem', color: '#28a745' }}>Training Dataset</h4>
           <p style={{ marginBottom: '1rem' }}>
             <a 
-              href="https://drive.google.com/drive/folders/11C6vYHc6Q2AFLuBvE5ySn3KAs5F0Dbtt?usp=drive_link" 
+              href="https://www.kaggle.com/datasets/debeshjha1/surgical-instrument-classification" 
               target="_blank" 
               rel="noopener noreferrer"
               style={{ color: '#dc2626', textDecoration: 'underline', fontWeight: 'bold' }}
             >
-              ★ Download Training Dataset (Google Drive) ★
+              ★ Download Training Dataset (Kaggle) ★
             </a>
           </p>
           <h4 style={{ marginTop: '1.5rem', marginBottom: '0.5rem', color: '#28a745' }}>Testing Dataset</h4>
