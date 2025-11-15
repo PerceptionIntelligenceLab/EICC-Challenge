@@ -23,7 +23,7 @@ const WorldMap: React.FC<WorldMapProps> = ({ data }) => {
   const [mapScale, setMapScale] = useState(200)
   const [windowSize, setWindowSize] = useState({ width: typeof window !== 'undefined' ? window.innerWidth : 1920, height: typeof window !== 'undefined' ? window.innerHeight : 1080 })
 
-  // Create a map of country codes to counts for quick lookup
+
   const dataMap = new Map(data.map(item => [item.countryCode, item.count]))
 
   useEffect(() => {

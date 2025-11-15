@@ -4,6 +4,7 @@ import Statistics from './components/Statistics'
 import Hosts from './components/Hosts'
 import Tasks from './components/Tasks'
 import Evaluation from './components/Evaluation'
+import DataSection from './components/DataSection'
 import Footer from './components/Footer'
 import './App.css'
 
@@ -29,111 +30,128 @@ function App() {
 
   const renderContent = () => {
     switch (currentSection) {
+      case 'dataset':
+        return <DataSection />
       case 'participants':
         return <Statistics />
       case 'hosts':
         return <Hosts />
       case 'dates':
         return <Evaluation />
+      case 'submissions':
+        return (
+          <main className="main-content">
+            <h1>Submissions</h1>
+            
+            <p style={{ color: '#dc2626', fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '2rem' }}>
+              Submit it to D2L dropbox under assignments by December 1, 2025
+            </p>
+            
+            <h2>Evaluation Methodology</h2>
+            <p>Submissions will be evaluated using comprehensive metrics to ensure fair and thorough assessment of model performance.</p>
+            
+            <h3>Evaluation Metrics</h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', margin: '2rem 0' }}>
+              <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)', textAlign: 'center' }}>
+                <h3 style={{ color: '#28a745', fontSize: '1.1rem', marginBottom: '0.5rem' }}>Accuracy</h3>
+                <p style={{ color: '#6c757d', fontSize: '0.9rem' }}>Overall classification accuracy across all instrument classes</p>
+              </div>
+              <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)', textAlign: 'center' }}>
+                <h3 style={{ color: '#28a745', fontSize: '1.1rem', marginBottom: '0.5rem' }}>Macro F1-Score</h3>
+                <p style={{ color: '#6c757d', fontSize: '0.9rem' }}>Primary evaluation metric - harmonic mean of precision and recall averaged across all classes</p>
+              </div>
+              <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)', textAlign: 'center' }}>
+                <h3 style={{ color: '#28a745', fontSize: '1.1rem', marginBottom: '0.5rem' }}>Per-class Precision</h3>
+                <p style={{ color: '#6c757d', fontSize: '0.9rem' }}>Accuracy of positive predictions for each instrument class</p>
+              </div>
+              <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)', textAlign: 'center' }}>
+                <h3 style={{ color: '#28a745', fontSize: '1.1rem', marginBottom: '0.5rem' }}>Per-class Recall</h3>
+                <p style={{ color: '#6c757d', fontSize: '0.9rem' }}>Ability to find all instances of each instrument class</p>
+              </div>
+              <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)', textAlign: 'center' }}>
+                <h3 style={{ color: '#28a745', fontSize: '1.1rem', marginBottom: '0.5rem' }}>Confusion Matrix Analysis</h3>
+                <p style={{ color: '#6c757d', fontSize: '0.9rem' }}>Detailed breakdown of classification performance across all classes</p>
+              </div>
+              <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)', textAlign: 'center' }}>
+                <h3 style={{ color: '#28a745', fontSize: '1.1rem', marginBottom: '0.5rem' }}>Inference Time (Track 2)</h3>
+                <p style={{ color: '#6c757d', fontSize: '0.9rem' }}>Speed metric for real-time classification (&lt;10ms per image target)</p>
+              </div>
+            </div>
+          </main>
+        )
       case 'tasks':
         return <Tasks />
       case 'conduct':
         return (
           <main className="main-content">
             <h1>Code of Conduct</h1>
-            <p>We are committed to providing a welcoming and inspiring community for all. We expect all participants to:</p>
+            <p>All participants of this classroom challenge are expected to:</p>
             <ul>
-              <li>Be respectful and inclusive</li>
-              <li>Collaborate in a constructive manner</li>
-              <li>Maintain professional behavior</li>
-              <li>Respect intellectual property and data usage guidelines</li>
+              <li>Uphold academic integrity - no plagiarism; submit only original work</li>
+              <li>Properly follow all data usage guidelines</li>
+              <li>Respect confidentiality and avoid sharing or redistributing the dataset</li>
+              <li>Use models and results responsibly, strictly for research and non-clinical purposes</li>
             </ul>
-            <p>Any violations of this code of conduct may result in disqualification from the challenge.</p>
+            <p><strong>Any violation of this Code of Conduct may result in removal or disqualification from the challenge.</strong></p>
           </main>
         )
       case 'contact':
         return (
           <main className="main-content">
             <h1>Contact</h1>
-            <h2>Task Organizers</h2>
+            <h2>Challenge Organizer</h2>
             <p><strong>Dr. Debesh Jha</strong></p>
-            <p>SimulaMet</p>
-            <p>Email: debesh@simula.no</p>
-            <p><strong>Harshith Reddy Nalla</strong></p>
-            <p>Undergraduate Research Assistant</p>
+            <p>Assistant Professor (Tenure Track)</p>
             <p>University of South Dakota</p>
-            <p><strong>Sai Sankar Swarna</strong></p>
-            <p>Graduate Assistant</p>
-            <p>University of South Dakota</p>
-            <h2>Discord Channel</h2>
-            <p>To facilitate communication within the participants, we have set up a Discord channel. You can use this channel for discussion of the challenge or ask questions. Please email debesh@simula.no for the invitation to the Discord.</p>
+            <p>Email: <a href="mailto:debesh.jha@usd.edu">debesh.jha@usd.edu</a></p>
+            <h2>Questions</h2>
+            <p>For any questions about the challenges, please contact <a href="mailto:debesh.jha@usd.edu">debesh.jha@usd.edu</a></p>
           </main>
         )
       default:
         return (
           <main className="main-content">
-        <h1>Machine Mind Marathon</h1>
-        <p>See the MediaEval 2020 webpage for information on how to register and participate.</p>
+        <h1 className="challenge-title">Endoscopic Instrument Classification Challenge (EICC 2025)</h1>
 
-        <h2>Challenge Description</h2>
-        <p>The "Machine Mind Marathon" aims to develop computer-aided diagnosis systems for automatic polyp segmentation to detect all types of polyps (for example, irregular polyp, smaller or flat polyps) with high efficiency and accuracy. The main goal of the challenge is to benchmark semantic segmentation algorithms on a publicly available dataset, emphasizing robustness, speed, and generalization.</p>
+        <h2>Overview</h2>
+        <p>Modern gastrointestinal (GI) endoscopy increasingly relies on artificial intelligence to assist clinicians during screening, diagnosis, and therapeutic interventions. While tremendous progress has been made in polyp detection and segmentation, instrument classification remains an underexplored yet crucial task—especially for workflow optimization, scene understanding, automated reporting, and robotic assistance.</p>
         
-        <p>Participants will get access to a dataset consisting of 1,000 segmented polyp images from the gastrointestinal tract and a separate testing dataset. The challenge consists of two mandatory tasks, each focused on a different requirement for efficient polyp detection. We hope that this task encourages multimedia researchers to apply their vast knowledge to the medical field and make an impact that may affect real lives.</p>
+        <p>This challenge provides a curated dataset of GI endoscopic frames categorized into seven clinically relevant classes: <strong>Biopsy Forceps, Clip Applier, Injection Needle, Snare, Spray Catheter, No Instrument, and Other Instruments</strong>. These categories capture the most frequent tools used in colonoscopy and allow participants to build models capable of recognizing fine-grained instrument types under challenging visual conditions.</p>
 
-        <h2>Task Description</h2>
-        <p>The participants are invited to submit the results on the following tasks:</p>
-        
-        <p><strong>1) Polyp segmentation task (required)</strong> - The polyp segmentation task asks participants to develop algorithms for segmenting polyps on a comprehensive dataset.</p>
-        
-        <p><strong>2) Algorithm efficiency task (required)</strong> - The algorithm efficiency task is similar to task one but puts a stronger emphasis on the algorithm's speed in terms of frames-per-second. To ensure a fair evaluation, this task requires participants to submit a Docker image so that all algorithms are evaluated on the same hardware.</p>
+        <h2>Challenge Objective</h2>
+        <p>The primary goal is to accurately classify the instrument (or lack thereof) present in each endoscopic image. Participants are encouraged to explore a wide range of AI techniques, including:</p>
+        <ul>
+          <li>CNN-based image classifiers (ResNet, EfficientNet, ConvNeXt)</li>
+          <li>Vision Transformers (ViT, Swin, MambaVision)</li>
+          <li>Multi-scale or hierarchical learning</li>
+          <li>Lightweight models suitable for real-time deployment</li>
+          <li>Self-supervised or foundation-model-based fine-tuning</li>
+          <li>Robustness techniques for low-quality or noisy scenes</li>
+        </ul>
 
-        <h2>Motivation and Background</h2>
-        <p>Colonoscopy is currently the gold-standard medical procedure for examining the colon for lesions and other abnormalities such as cancer. Colorectal cancer (CRC) is the third most prevailing strain in terms of cancer incidence and second in terms of mortality globally. As early detection is critical for patient survival, regular screening through colonoscopy is a prerequisite for cancer detection and colorectal cancer prevention. Regardless of the success of colonoscopy, it is estimated to miss around 20% of polyps. This is mostly due to the heavy reliance on the skill of the clinician operating the endoscope and his/her ability to detect polyps. An automated computer-aided diagnosis (CAD) system could be one of the potential solutions for the overlooked polyps. Such detection or surveillance systems can give doctors a so-called "third-eye", thereby alerting them of missed polyps or other common lesions.</p>
+        <h2>Who Should Participate?</h2>
+        <p>This challenge is ideal for:</p>
+        <ul>
+          <li>Students learning medical computer vision (For now, only students)</li>
+          <li>AI/ML researchers</li>
+          <li>Hospitals and clinical AI teams</li>
+          <li>Industry partners working on endoscopic AI</li>
+          <li>Startups in digital health/robotics</li>
+          <li>Academic labs focusing on surgical/medical imaging</li>
+        </ul>
 
-        <h2>Target Group</h2>
-        <p>The task is of interest to the researchers working with multimedia segmentation, deep learning (semantic segmentation), and computer vision. We especially encourage young researchers to contribute to the field of endoscopy by developing an automated computer-aided diagnosis system that could be potentially used in clinical settings.</p>
+        <h2>Research Impact</h2>
+        <p>Accurate instrument classification opens doors to several downstream applications:</p>
+        <ul>
+          <li>Automated surgical workflow recognition</li>
+          <li>Real-time tool tracking and collision avoidance</li>
+          <li>Context-aware clinical decision support</li>
+          <li>Automated report generation</li>
+          <li>Training and simulation systems</li>
+          <li>Robotic and semi-autonomous endoscopic systems</li>
+        </ul>
 
-        <h2>Data</h2>
-        <p>The dataset contains 1,000 polyp images and their corresponding ground truth mask. The datasets were collected from real routine clinical examinations at Vestre Viken Health Trust (VV) in Norway by expert gastroenterologists. The VV is the collaboration of the four hospitals that provide healthcare service to 470,000 peoples. The resolution of images varies from 332✕487 to 1920✕1072 pixels. Some of the images contain green thumbnail in the lower-left corner of the images showing the position marking from the ScopeGuide (Olympus). The training dataset can be downloaded from <a href="https://datasets.simula.no/kvasir-seg/" target="_blank" rel="noopener noreferrer">https://datasets.simula.no/kvasir-seg/</a>.</p>
-        
-        <p>The test dataset is now released. It can be downloaded from <a href="https://drive.google.com/file/d/1uP2W2g0iCCS3T6Cf7TPmNdSX4gayOrv2/view?usp=sharing" target="_blank" rel="noopener noreferrer">https://drive.google.com/file/d/1uP2W2g0iCCS3T6Cf7TPmNdSX4gayOrv2/view?usp=sharing</a>.</p>
-
-        <h2>Evaluation Methodology</h2>
-        <p>The task will use mean Intersection over Union (mIoU) or Jaccard index as an evaluation metric, which is a standard metric for all medical segmentation task. If the teams have the same mIoU values, then the teams will be further evaluated on the basis of the higher value of the dice coefficient. We strongly recommend calculating other standard evaluation metrics such as dice coefficient, precision, recall, F2, and frame per second (FPS) for a comprehensive evaluation.</p>
-        
-        <p>In the challenge overview paper, the organizers will be calculating the metrics such as the Dice coefficient, mIoU, Recall, Precision, Overlap, F2, MAE, FPS, s-score, and Clinical relevance of the methods submitted by each team.</p>
-
-        <h2>Submission</h2>
-        <p>The submissions will be verified by inspecting the corresponding Docker image. If you have a problem with submitting the Docker image, we are flexible to accept a zip file that contains the predicted mask for task 1. For task 2, we require the Docker submission so that we can evaluate on the same hardware. For the more instruction about the Docker submission, please refer to our GitHub repository.</p>
-
-        <h2>Rules</h2>
-        <p>By registering this challenge, each individual or team agrees to use only the provided dataset. After the challenge, the dataset test dataset will be made available and the authors can only use it for publication or any non-commercial use. A participating team will be allowed to make a maximum of 5 submissions. The test data can not be used while training the model. The results will be evaluated by the organizers and presented at MediaEval 2020.</p>
-
-        <h2>Discord Channel</h2>
-        <p>To facilitate communication within the participants, we have set up a Discord channel. You can use this channel for discussion of the challenge or ask questions. Please email debesh@simula.no for the invitation at the Discord.</p>
-
-        <h2>References and recommended reading</h2>
-        <p>Debesh Jha, Pia H. Smedsrud, Michael A. Riegler, Pål Halvorsen, Thomas de Lange, Dag Johansen, and Håvard D. Johansen. 2020. Kvasir-seg: A segmented polyp dataset, In Proceeding of International Conference on Multimedia Modeling (MMM), 451-462.</p>
-        
-        <p>Debesh Jha, Pia H. Smedsrud, Michael A. Riegler, Pål Halvorsen, Thomas de Lange, Dag Johansen, and Håvard D. Johansen. 2019. Resunet++: An advanced architecture for medical image segmentation, In International Symposium on Multimedia (ISM), 225-2255.</p>
-        
-        <p>Tobias Ross et al. 2020. Robust Medical Instrument Segmentation Challenge 2019, arXiv preprint.</p>
-        
-        <p>Sharib Ali et al. 2020. An objective comparison of detection and segmentation algorithms for artefacts in clinical endoscopy, Scientific Reports.</p>
-
-        <h2>Task Organizers</h2>
-        <p>Dr. Debesh Jha, SimulaMet debesh (at) simula.no</p>
-        <p>Harshith Reddy Nalla</p>
-        <p>Sai Sankar Swarna</p>
-
-        <h2>Task Schedule</h2>
-        <p>01 July: Data release</p>
-        <p>01 September: Test Data release</p>
-        <p>31 October 16 November: Runs due</p>
-        <p>15 November 23 November: Results returned</p>
-        <p>30 November: Working notes paper</p>
-        <p>11, 14-15 December: MediaEval 2020 Workshop</p>
-        <p>Workshop will be held online. Exact dates to be announced.</p>
+        <p>This challenge aims to encourage the development of robust, generalizable AI models that work in real endoscopy suites—not just controlled lab settings.</p>
           </main>
         )
     }

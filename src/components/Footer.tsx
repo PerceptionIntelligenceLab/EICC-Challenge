@@ -7,8 +7,8 @@ const Footer: React.FC = () => {
         <div className="footer-content">
           <div className="footer-section">
             <h3>Challenge</h3>
-            <p>Machine Mind Marathon</p>
-            <p>MediaEval 2020</p>
+            <p>EICC 2025</p>
+            <p>Endoscopic Instrument Classification</p>
           </div>
           
           <div className="footer-section">
@@ -21,21 +21,19 @@ const Footer: React.FC = () => {
           
           <div className="footer-section">
             <h3>Resources</h3>
-            <p><a href="https://datasets.simula.no/kvasir-seg/" target="_blank" rel="noopener noreferrer">Training Dataset</a></p>
-            <p><a href="https://drive.google.com/file/d/1uP2W2g0iCCS3T6Cf7TPmNdSX4gayOrv2/view?usp=sharing" target="_blank" rel="noopener noreferrer">Test Dataset</a></p>
-            <p><a href="https://github.com/DebeshJha" target="_blank" rel="noopener noreferrer">GitHub Repository</a></p>
+            <p>Dataset Release: November 15, 2025</p>
+            <p><a href="https://drive.google.com/drive/folders/11C6vYHc6Q2AFLuBvE5ySn3KAs5F0Dbtt?usp=drive_link" target="_blank" rel="noopener noreferrer">Dataset Download</a></p>
           </div>
           
           <div className="footer-section">
             <h3>Contact</h3>
-            <p>Email: debesh@simula.no</p>
-            <p>Discord: Available upon request</p>
-            <p>MediaEval 2020 Workshop</p>
+            <p>Email: <a href="mailto:debesh.jha@usd.edu">debesh.jha@usd.edu</a></p>
+            <p>University of South Dakota</p>
           </div>
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; 2020 Machine Mind Marathon. All rights reserved.</p>
+          <p>&copy; 2025 EICC 2025. All rights reserved.</p>
         </div>
       </div>
     </footer>

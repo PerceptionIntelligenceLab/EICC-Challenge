@@ -5,30 +5,24 @@ const Organizer: React.FC = () => {
     {
       name: "Dr. Debesh Jha",
       title: "Lead Organizer",
-      affiliation: "SimulaMet",
-      email: "debesh@simula.no"
+      affiliation: "University of South Dakota",
+      email: "debesh.jha@usd.edu"
     },
     {
-      name: "Harshith Reddy Nall",
+      name: "Harshith Reddy Nalla",
       title: "Co-Organizer", 
-      affiliation: "SimulaMet",
-      email: "harshith@simula.no"
-    },
-    {
-      name: "Sai Sankar Swarna",
-      title: "Co-Organizer",
-      affiliation: "SimulaMet", 
-      email: "sai@simula.no"
+      affiliation: "University of South Dakota",
+      email: "Contact via debesh.jha@usd.edu"
     }
   ]
 
   return (
     <section id="organizer" className="section organizer">
       <div className="section-container">
-        <h2 className="section-title">Task Organizers</h2>
+        <h2 className="section-title">Challenge Organizer</h2>
         <div className="section-content">
           <p>
-            The challenge is organized by leading researchers in medical AI and computer vision, with expertise in endoscopic image analysis and polyp detection.
+            The challenges are organized by leading researchers in medical AI and computer vision, with expertise in endoscopic image analysis, instrument classification, and polyp detection.
           </p>
         </div>
 

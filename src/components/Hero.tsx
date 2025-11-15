@@ -5,13 +5,10 @@ const Hero: React.FC = () => {
     <section id="home" className="hero">
       <div className="hero-container">
         <h1 className="hero-title">
-          Machine Mind Marathon
+          Endoscopic Instrument Classification Challenge (EICC 2025)
         </h1>
-        <p className="hero-subtitle">
-          MediaEval 2020
-        </p>
         <p className="hero-description">
-          The "Machine Mind Marathon" aims to develop computer-aided diagnosis systems for automatic polyp segmentation to detect all types of polyps (for example, irregular polyp, smaller or flat polyps) with high efficiency and accuracy. The main goal of the challenge is to benchmark semantic segmentation algorithms on a publicly available dataset, emphasizing robustness, speed, and generalization.
+          Modern gastrointestinal (GI) endoscopy increasingly relies on artificial intelligence to assist clinicians during screening, diagnosis, and therapeutic interventions. While tremendous progress has been made in polyp detection and segmentation, instrument classification remains an underexplored yet crucial task—especially for workflow optimization, scene understanding, automated reporting, and robotic assistance.
         </p>
       </div>
     </section>

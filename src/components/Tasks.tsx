@@ -5,23 +5,36 @@ const Tasks: React.FC = () => {
 
   const tasks = [
     {
-      title: "Polyp Segmentation Task",
-      description: "The polyp segmentation task asks participants to develop algorithms for segmenting polyps on a comprehensive dataset.",
+      title: "Track 1: Standard Classification",
+      description: "Participants train any model using only the provided images. This track focuses on achieving the best possible classification accuracy across all seven instrument classes.",
       requirements: [
-        "Develop algorithms for segmenting polyps on a comprehensive dataset",
-        "Focus on detecting all types of polyps including irregular, smaller, or flat polyps",
-        "Achieve high efficiency and accuracy in segmentation",
-        "Submit predicted masks for evaluation"
+        "Train classification models using only the provided dataset",
+        "Classify images into 7 classes: Biopsy Forceps, Clip Applier, Injection Needle, Snare, Spray Catheter, No Instrument, Other Instruments",
+        "Explore CNN-based classifiers (ResNet, EfficientNet, ConvNeXt)",
+        "Experiment with Vision Transformers (ViT, Swin, MambaVision)",
+        "Submit predictions for evaluation"
       ]
     },
     {
-      title: "Algorithm Efficiency Task", 
-      description: "The algorithm efficiency task is similar to task one but puts a stronger emphasis on the algorithm's speed in terms of frames-per-second.",
+      title: "Track 2: Real-Time Classification",
+      description: "Focus on fast architectures (<10ms per image) designed for clinical deployment. This track emphasizes both accuracy and speed for real-world applications.",
       requirements: [
-        "Similar to task one but with emphasis on speed",
+        "Develop lightweight models suitable for real-time deployment",
+        "Achieve inference time of less than 10ms per image",
+        "Maintain competitive accuracy while optimizing for speed",
         "Submit Docker image for fair evaluation on same hardware",
-        "Optimize for frames-per-second performance",
-        "Maintain accuracy while improving speed"
+        "Document model architecture and optimization techniques"
+      ]
+    },
+    {
+      title: "Track 3: Foundation-Model Transfer (Optional)",
+      description: "Use large pretrained models (SAM, DINOv2, CLIP ViT, etc.) to boost performance in instrument recognition. This track encourages leveraging state-of-the-art foundation models.",
+      requirements: [
+        "Utilize large pretrained models (SAM, DINOv2, CLIP ViT, etc.)",
+        "Fine-tune foundation models for instrument classification",
+        "Explore self-supervised or foundation-model-based approaches",
+        "Document transfer learning strategies and improvements",
+        "Submit model predictions and methodology"
       ]
     }
   ]
@@ -29,10 +42,10 @@ const Tasks: React.FC = () => {
   return (
     <section id="tasks" className="section tasks">
       <div className="section-container">
-        <h2 className="section-title">Task Description</h2>
+        <h2 className="section-title">Task Descriptions</h2>
         <div className="section-content">
           <p>
-            The participants are invited to submit the results on the following tasks:
+            The participants are invited to submit results for the following tracks:
           </p>
         </div>
 
@@ -43,7 +56,7 @@ const Tasks: React.FC = () => {
               className={`task-tab ${activeTask === index ? 'active' : ''}`}
               onClick={() => setActiveTask(index)}
             >
-              Task {index + 1}
+              Track {index + 1}
             </button>
           ))}
         </div>
@@ -51,6 +64,7 @@ const Tasks: React.FC = () => {
         <div className="task-content">
           <h3>{tasks[activeTask].title}</h3>
           <p>{tasks[activeTask].description}</p>
+          <h4 style={{ marginTop: '1.5rem', marginBottom: '1rem' }}>Requirements:</h4>
           <ul>
             {tasks[activeTask].requirements.map((req, index) => (
               <li key={index}>{req}</li>

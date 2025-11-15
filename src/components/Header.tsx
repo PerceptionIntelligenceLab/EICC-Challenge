@@ -5,10 +5,11 @@ const Header: React.FC = () => {
 
   const navItems = [
     { name: 'Home', href: '#home' },
+    { name: 'Dataset', href: '#dataset' },
     { name: 'Leaderboards', href: '#leaderboards', locked: true },
     { name: 'Statistics', href: '#participants' },
     { name: 'Important Dates', href: '#dates' },
-    { name: 'Hosts', href: '#hosts' },
+    { name: 'Submissions', href: '#submissions' },
     { name: 'Code of Conduct', href: '#conduct' },
     { name: 'Contact', href: '#contact' }
   ]

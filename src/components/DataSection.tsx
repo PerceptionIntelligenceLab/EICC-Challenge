@@ -8,8 +8,25 @@ const DataSection: React.FC = () => {
       title: "Dataset Overview",
       content: (
         <div>
-          <p>The dataset contains 1,000 polyp images and their corresponding ground truth mask. The datasets were collected from real routine clinical examinations at Vestre Viken Health Trust (VV) in Norway by expert gastroenterologists.</p>
-          <p>The VV is the collaboration of the four hospitals that provide healthcare service to 470,000 peoples. The resolution of images varies from 332✕487 to 1920✕1072 pixels. Some of the images contain green thumbnail in the lower-left corner of the images showing the position marking from the ScopeGuide (Olympus).</p>
+          <p>The dataset consists of high-quality endoscopic images collected from routine GI procedures. Each image is manually verified by expert annotators. The dataset exhibits real-world variability, including:</p>
+          <ul style={{ marginTop: '1rem', marginLeft: '2rem' }}>
+            <li style={{ color: '#dc2626' }}>Different lighting conditions</li>
+            <li style={{ color: '#dc2626' }}>Varying degrees of motion blur</li>
+            <li style={{ color: '#dc2626' }}>Occlusions by folds, bubbles, or fluids</li>
+            <li style={{ color: '#dc2626' }}>Instruments at multiple scales and angles</li>
+            <li style={{ color: '#dc2626' }}>Complex backgrounds and low-contrast scenes</li>
+          </ul>
+          <p style={{ marginTop: '1rem' }}>The images are split into separate folders corresponding to instrument classes:</p>
+          <ul style={{ marginTop: '1rem', marginLeft: '2rem' }}>
+            <li style={{ color: '#dc2626' }}>Biopsy_forceps</li>
+            <li style={{ color: '#dc2626' }}>Clip_applier</li>
+            <li style={{ color: '#dc2626' }}>Injection_needle</li>
+            <li style={{ color: '#dc2626' }}>No_instrument</li>
+            <li style={{ color: '#dc2626' }}>Other</li>
+            <li style={{ color: '#dc2626' }}>Snare</li>
+            <li style={{ color: '#dc2626' }}>Spray_catheter</li>
+          </ul>
+          <p style={{ marginTop: '1rem' }}>Participants can train classification models directly on these folders or build custom pipelines for data augmentation, feature extraction, or multi-task learning.</p>
         </div>
       )
     },
@@ -17,8 +34,19 @@ const DataSection: React.FC = () => {
       title: "Download Links",
       content: (
         <div>
-          <p><strong>Training Dataset:</strong> <a href="https://datasets.simula.no/kvasir-seg/" target="_blank" rel="noopener noreferrer">https://datasets.simula.no/kvasir-seg/</a></p>
-          <p><strong>Test Dataset:</strong> <a href="https://drive.google.com/file/d/1uP2W2g0iCCS3T6Cf7TPmNdSX4gayOrv2/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download Test Dataset</a></p>
+          <h4 style={{ marginTop: '1rem', marginBottom: '0.5rem', color: '#28a745' }}>Training Dataset</h4>
+          <p style={{ marginBottom: '1rem' }}>
+            <a 
+              href="https://drive.google.com/drive/folders/11C6vYHc6Q2AFLuBvE5ySn3KAs5F0Dbtt?usp=drive_link" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ color: '#dc2626', textDecoration: 'underline', fontWeight: 'bold' }}
+            >
+              ★ Download Training Dataset (Google Drive) ★
+            </a>
+          </p>
+          <h4 style={{ marginTop: '1.5rem', marginBottom: '0.5rem', color: '#28a745' }}>Testing Dataset</h4>
+          <p style={{ marginBottom: '1rem' }}>The testing dataset will be announced soon. Please check back for updates.</p>
         </div>
       )
     }
@@ -27,7 +55,7 @@ const DataSection: React.FC = () => {
   return (
     <section id="data" className="section data-section">
       <div className="section-container">
-        <h2 className="section-title">Data</h2>
+        <h2 className="section-title">Dataset Information</h2>
         
         <div className="data-tabs">
           {dataInfo.map((info, index) => (

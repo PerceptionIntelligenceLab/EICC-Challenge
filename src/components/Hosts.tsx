@@ -25,16 +25,6 @@ const Hosts: React.FC = () => {
         { name: "LinkedIn", url: "https://www.linkedin.com/in/harshith-reddy-nalla-6005012ab/" },
         { name: "Website", url: "https://harshithreddy01.github.io/My-Web/" }
       ]
-    },
-    {
-      name: "Sai Sankar Swarna",
-      title: "Graduate Assistant",
-      description: "Graduate Assistant at the University of South Dakota specializing in Computer Science. Experienced in Spring Boot, Java, Python, and DevOps tools, contributing to scalable backend systems and academic instruction.",
-      image: `${BASE_URL}sai sankar.jpeg`,
-      links: [
-        { name: "GitHub", url: "https://github.com/Swarna7414" },
-        { name: "LinkedIn", url: "https://www.linkedin.com/in/swanra-sai-sankar-000797191/" }
-      ]
     }
   ]
 
