@@ -1165,6 +1165,15 @@ body {
   .footer-section {
     text-align: center;
   }
+
+  .dataset-image-chain {
+    gap: 0.75rem !important;
+  }
+
+  .dataset-image-chain img {
+    width: 150px !important;
+    height: 150px !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1249,6 +1258,15 @@ body {
   .host-link {
     font-size: 0.85rem;
     padding: 6px 10px;
+  }
+
+  .dataset-image-chain {
+    gap: 0.5rem !important;
+  }
+
+  .dataset-image-chain img {
+    width: 120px !important;
+    height: 120px !important;
   }
 }
 
