@@ -2,97 +2,61 @@ import React, { useState } from 'react'
 
 const BASE_URL = import.meta.env.BASE_URL
 
+const imageClasses = [
+  { name: 'Chain', folder: 'snare', images: [1, 2, 3, 4] },
+  { name: 'Clip', folder: 'clip_applier', images: [1, 2, 3, 4] },
+  { name: 'Doubt', folder: 'other', images: [1, 2, 3, 4] },
+  { name: 'Hold', folder: 'biopsy_forceps', images: [1, 2, 3, 4] },
+  { name: 'Hook', folder: 'injection_needle', images: [1, 2, 3, 4] },
+  { name: 'No Instrument', folder: 'no_instrument', images: [1, 2, 3, 4] },
+  { name: 'White Tube', folder: 'spray_catheter', images: [1, 2, 3, 4] }
+]
+
 const DataSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0)
-
-  const imageClasses = [
-    {
-      name: 'Biopsy Forceps',
-      folder: 'biopsy_forceps',
-      images: [1, 2, 3, 4]
-    },
-    {
-      name: 'Clip Applier',
-      folder: 'clip_applier',
-      images: [1, 2, 3, 4]
-    },
-    {
-      name: 'Injection Needle',
-      folder: 'injection_needle',
-      images: [1, 2, 3, 4]
-    },
-    {
-      name: 'No Instrument',
-      folder: 'no_instrument',
-      images: [1, 2, 3, 4]
-    },
-    {
-      name: 'Other',
-      folder: 'other',
-      images: [1, 2, 3, 4]
-    },
-    {
-      name: 'Snare',
-      folder: 'snare',
-      images: [1, 2, 3, 4]
-    },
-    {
-      name: 'Spray Catheter',
-      folder: 'spray_catheter',
-      images: [1, 2, 3, 4]
-    }
-  ]
 
   const dataInfo = [
     {
       title: "Dataset Overview",
       content: (
         <div>
-          <p>The dataset consists of high-quality endoscopic images collected from routine GI procedures. Each image is manually verified by expert annotators. The dataset exhibits real-world variability, including:</p>
+          <p>The dataset consists of frames extracted from surgical videos. Each frame contains visual information about the presence or absence of specific instruments used during a procedure. The frames are split into separate folders corresponding to instrument categories:</p>
           <ul style={{ marginTop: '1rem', marginLeft: '2rem' }}>
-            <li style={{ color: '#dc2626' }}>Different lighting conditions</li>
-            <li style={{ color: '#dc2626' }}>Varying degrees of motion blur</li>
-            <li style={{ color: '#dc2626' }}>Occlusions by folds, bubbles, or fluids</li>
-            <li style={{ color: '#dc2626' }}>Instruments at multiple scales and angles</li>
-            <li style={{ color: '#dc2626' }}>Complex backgrounds and low-contrast scenes</li>
+            <li style={{ color: '#dc2626' }}>Chain</li>
+            <li style={{ color: '#dc2626' }}>Clip</li>
+            <li style={{ color: '#dc2626' }}>Doubt</li>
+            <li style={{ color: '#dc2626' }}>Hold</li>
+            <li style={{ color: '#dc2626' }}>Hook</li>
+            <li style={{ color: '#dc2626' }}>No Instrument</li>
+            <li style={{ color: '#dc2626' }}>White Tube</li>
           </ul>
-          <p style={{ marginTop: '1rem' }}>The images are split into separate folders corresponding to instrument classes:</p>
-          <ul style={{ marginTop: '1rem', marginLeft: '2rem' }}>
-            <li style={{ color: '#dc2626' }}>Biopsy_forceps</li>
-            <li style={{ color: '#dc2626' }}>Clip_applier</li>
-            <li style={{ color: '#dc2626' }}>Injection_needle</li>
-            <li style={{ color: '#dc2626' }}>No_instrument</li>
-            <li style={{ color: '#dc2626' }}>Other</li>
-            <li style={{ color: '#dc2626' }}>Snare</li>
-            <li style={{ color: '#dc2626' }}>Spray_catheter</li>
-          </ul>
-          <p style={{ marginTop: '1rem' }}>Participants can train classification models directly on these folders or build custom pipelines for data augmentation, feature extraction, or multi-task learning.</p>
-          
-          <h4 style={{ 
-            marginTop: '2rem', 
-            marginBottom: '1rem', 
-            color: '#dc2626', 
+          <p style={{ marginTop: '1rem' }}>Every frame belongs to exactly one of these seven classes. These frames will be used to train and evaluate the classification model. Participants can train classification models directly on these folders or build custom pipelines for data augmentation, feature extraction, or multi-task learning.</p>
+
+          <h4 style={{
+            marginTop: '2rem',
+            marginBottom: '1rem',
+            color: '#dc2626',
             fontSize: '2rem',
             fontWeight: '700',
             textAlign: 'center'
           }}>
-            Sample Images from Each Class
+            Sample Images from the Dataset
           </h4>
-          <p style={{ marginBottom: '1.5rem', textAlign: 'center' }}>Below are sample images from each of the seven instrument classes in the dataset:</p>
-          
+          <p style={{ marginBottom: '1.5rem', textAlign: 'center' }}>Below are sample images from the surgical instrument dataset:</p>
+
           {imageClasses.map((imageClass, classIndex) => (
             <div key={classIndex} style={{ marginBottom: '3rem' }}>
-              <h5 style={{ 
-                color: '#dc2626', 
-                fontSize: '1.5rem', 
-                marginBottom: '1rem', 
+              <h5 style={{
+                color: '#dc2626',
+                fontSize: '1.5rem',
+                marginBottom: '1rem',
                 fontWeight: '700',
                 textAlign: 'center'
               }}>
                 {imageClass.name}
               </h5>
-              <div className="dataset-image-chain" style={{ 
-                display: 'flex', 
+              <div style={{
+                display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -119,7 +83,7 @@ const DataSection: React.FC = () => {
                     e.currentTarget.style.borderColor = '#e9ecef'
                     e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)'
                   }}>
-                    <img 
+                    <img
                       src={`${BASE_URL}dataset-images/${imageClass.folder}_${imgNum}.jpg`}
                       alt={`${imageClass.name} sample ${imgNum}`}
                       style={{

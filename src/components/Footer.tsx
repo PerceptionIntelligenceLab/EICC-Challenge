@@ -7,8 +7,8 @@ const Footer: React.FC = () => {
         <div className="footer-content">
           <div className="footer-section">
             <h3>Challenge</h3>
-            <p>EICC 2025</p>
-            <p>Endoscopic Instrument Classification</p>
+            <p>EICC 2026</p>
+            <p>Efficient Instrument Classification</p>
           </div>
           
           <div className="footer-section">
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
           
           <div className="footer-section">
             <h3>Resources</h3>
-            <p>Dataset Release: November 15, 2025</p>
+            <p>Dataset Release: To be announced</p>
             <p><a href="https://www.kaggle.com/datasets/debeshjha1/surgical-instrument-classification" target="_blank" rel="noopener noreferrer">Dataset Download</a></p>
           </div>
           
@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; 2025 EICC 2025. All rights reserved.</p>
+          <p>&copy; 2026 University of South Dakota. All rights reserved.</p>
         </div>
       </div>
     </footer>

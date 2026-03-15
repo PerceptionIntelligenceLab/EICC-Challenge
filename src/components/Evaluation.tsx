@@ -3,12 +3,12 @@ import React from 'react'
 const Evaluation: React.FC = () => {
   const timeline = [
     {
-      date: "November 15, 2025",
+      date: "Check D2L",
       title: "Dataset Release",
       description: "Training dataset made available"
     },
     {
-      date: "December 1, 2025",
+      date: "Check D2L",
       title: "Submission Deadline",
       description: "Final submission deadline for challenge entries"
     },
