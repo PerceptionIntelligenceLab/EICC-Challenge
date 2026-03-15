@@ -9,7 +9,6 @@ const Header: React.FC = () => {
     { name: 'Tasks', href: '#tasks' },
     { name: 'Leaderboards', href: '#leaderboards', locked: true },
     { name: 'Statistics', href: '#participants' },
-    { name: 'Hosts', href: '#hosts' },
     { name: 'Important Dates', href: '#dates' },
     { name: 'Submissions', href: '#submissions' },
     { name: 'Contact', href: '#contact' }

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Statistics from './components/Statistics'
-import Hosts from './components/Hosts'
 import Tasks from './components/Tasks'
 import Evaluation from './components/Evaluation'
 import DataSection from './components/DataSection'
@@ -34,8 +33,6 @@ function App() {
         return <DataSection />
       case 'participants':
         return <Statistics />
-      case 'hosts':
-        return <Hosts />
       case 'dates':
         return <Evaluation />
       case 'submissions':
