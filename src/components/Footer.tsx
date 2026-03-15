@@ -16,7 +16,6 @@ const Footer: React.FC = () => {
             <p><a href="#home">Home</a></p>
             <p><a href="#leaderboards">Leaderboards</a></p>
             <p><a href="#dates">Important Dates</a></p>
-            <p><a href="#hosts">Hosts</a></p>
           </div>
           
           <div className="footer-section">
